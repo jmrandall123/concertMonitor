@@ -34,8 +34,8 @@ class APIConfig:
     # Google Calendar
     google_calendar_credentials: Optional[str] = None
 
-    # OpenAI (for AI-powered matching)
-    openai_api_key: Optional[str] = None
+    # Anthropic Claude (for AI-powered matching and preference extraction)
+    anthropic_api_key: Optional[str] = None
 
     # Email (SMTP)
     smtp_host: str = "smtp.gmail.com"
@@ -116,7 +116,7 @@ class AppConfig:
             spotify_client_id=os.getenv("SPOTIFY_CLIENT_ID"),
             spotify_client_secret=os.getenv("SPOTIFY_CLIENT_SECRET"),
             google_calendar_credentials=os.getenv("GOOGLE_CALENDAR_CREDENTIALS"),
-            openai_api_key=os.getenv("OPENAI_API_KEY"),
+            anthropic_api_key=os.getenv("ANTHROPIC_API_KEY"),
             smtp_host=os.getenv("SMTP_HOST", "smtp.gmail.com"),
             smtp_port=int(os.getenv("SMTP_PORT", "587")),
             smtp_username=os.getenv("SMTP_USERNAME"),

@@ -1,5 +1,8 @@
 # Concert Monitor Agent System - Dependencies
 
+# Anthropic Claude SDK
+anthropic>=0.39.0
+
 # Async HTTP client
 aiohttp>=3.9.0
 
