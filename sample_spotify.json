@@ -1,0 +1,23 @@
+{
+  "year": 2024,
+  "topArtists": [
+    "Taylor Swift",
+    "The Weeknd",
+    "Drake",
+    "Dua Lipa",
+    "Bad Bunny",
+    "Ed Sheeran",
+    "Billie Eilish",
+    "Post Malone",
+    "Ariana Grande",
+    "Kendrick Lamar"
+  ],
+  "topGenres": [
+    "pop",
+    "hip-hop",
+    "r&b",
+    "electronic",
+    "indie"
+  ],
+  "minutesListened": 45000
+}

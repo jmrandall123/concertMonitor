@@ -188,17 +188,23 @@ class ConcertMonitorOrchestrator:
                 "radius_miles": loc.radius_miles,
             }]
 
+        # Build input data for discovery
+        input_data = {
+            "artists": top_artists,
+            "start_date": datetime.now(),
+            "end_date": datetime.now() + timedelta(
+                days=self.config.discovery_days_ahead
+            ),
+            "limit": self.config.max_events_per_source,
+        }
+
+        # Add location data if available
+        if locations:
+            input_data.update(locations[0])
+
         context = AgentContext(
             user_id=user.id,
-            input_data={
-                "artists": top_artists,
-                "start_date": datetime.now(),
-                "end_date": datetime.now() + timedelta(
-                    days=self.config.discovery_days_ahead
-                ),
-                "limit": self.config.max_events_per_source,
-                **locations[0] if locations else {},
-            },
+            input_data=input_data,
             config={
                 "ticketmaster_api_key": self.config.ticketmaster_api_key,
                 "seatgeek_client_id": self.config.seatgeek_client_id,

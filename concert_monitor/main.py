@@ -14,6 +14,11 @@ import sys
 from datetime import datetime
 from uuid import uuid4
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 from .config import AppConfig, setup_logging
 from .orchestrator import ConcertMonitorOrchestrator, OrchestratorConfig
 from .models.user import User, UserPreferences, Location
@@ -200,10 +205,16 @@ async def run_for_user(email: str, spotify_file: str = None, apple_file: str = N
 
     # Output results
     print("\n📊 Pipeline Results:")
-    print(f"   Events discovered: {results['discovery']['events_found']}")
-    print(f"   Events rated: {results['rating']['events_rated']}")
-    print(f"   Must-see events: {results['rating']['must_see']}")
-    print(f"   Added to calendar: {results['calendar']['summary']['total_added']}")
+    print(f"   Events discovered: {results['discovery']['events_found'] if results.get('discovery') else 0}")
+
+    if results.get('rating'):
+        print(f"   Events rated: {results['rating']['events_rated']}")
+        print(f"   Must-see events: {results['rating']['must_see']}")
+    else:
+        print("   Events rated: 0 (no events to rate)")
+
+    if results.get('calendar'):
+        print(f"   Added to calendar: {results['calendar']['summary']['total_added']}")
 
     if results.get('digest'):
         print(f"   Digest sent: {results['digest']['sent']}")
