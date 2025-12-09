@@ -1,0 +1,40 @@
+# Concert Monitor Agent System - Dependencies
+
+# Async HTTP client
+aiohttp>=3.9.0
+
+# Async SMTP for email
+aiosmtplib>=3.0.0
+
+# Data validation (optional, for API)
+pydantic>=2.0.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Date/time handling
+python-dateutil>=2.8.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.0.0
+
+# Development
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.0.0
+
+# Optional: Database support
+# sqlalchemy>=2.0.0
+# asyncpg>=0.29.0  # PostgreSQL async driver
+
+# Optional: Redis for caching
+# redis>=5.0.0
+
+# Optional: Celery for task scheduling
+# celery>=5.3.0
+
+# Optional: API framework
+# fastapi>=0.109.0
+# uvicorn>=0.27.0
